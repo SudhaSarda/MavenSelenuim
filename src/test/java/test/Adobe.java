@@ -67,6 +67,21 @@ public class Adobe {
         	 driver.quit();
          }
 
-		
+         
+         @Test(priority=2)
+         public void login2() {
+        	 
+        	 WebDriver driver=new ChromeDriver();
+        	 driver.manage().window().maximize();
+        	 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        	 driver.get("http://adobe.com");
+        	 driver.findElement(By.xpath("//*[@id=\"gnt_754\"]/a/span")).click();
+        	 driver.findElement(By.id("EmailPage-EmailField")).sendKeys("sudha.sarda23@gmail.com");
+        	 driver.findElement(By.xpath("//*[@id=\"EmailForm\"]/section[2]/div[2]/button/span")).click();
+        	 String error=driver.findElement(By.xpath("//*[@id=\"EmailForm\"]/section[1]/label")).getText();
+        	 System.out.println(error);
+        	 driver.quit();
+        	 
+         }
 
 }
